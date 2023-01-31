@@ -1,0 +1,36 @@
+Algoritmo DiaMesAnio
+	
+	Definir d, m, a Como Entero
+	Definir nombremes Como Caracter
+	
+	Escribir "Ingrese el dia"
+	Leer d
+	Escribir "ingrese el mes"
+	Leer m
+	Escribir "Ingrese el año"
+	Leer a
+	
+	si (d < 1 o d > 31) y ( m < 1 o m > 12) y ( a < 1) Entonces
+		
+		Escribir "Error al elijir la fecha"
+	FinSi
+	
+	segun m Hacer
+		caso 1:nombremes = "Enero"
+		caso 2:nombremes = "Febrero"
+		caso 3:nombremes = "Marzo"
+		caso 4:nombremes = "Abril"	
+		caso 5:nombremes = "Mayo"	
+		caso 6:nombremes = "Junio"	
+		caso 7:nombremes = "Julio"
+		caso 8:nombremes = "Agosto"
+		caso 9:nombremes = "Septimbre"
+		caso 10:nombremes = "Octubre"	
+		caso 11:nombremes = "Noviembre"
+		caso 12:nombremes = "Diciembre"
+	FinSegun
+	Escribir "El ", d, " de " , nombremes, " del " , a;
+	
+	
+	
+FinAlgoritmo

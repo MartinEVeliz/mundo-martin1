@@ -1,0 +1,27 @@
+Algoritmo ej3_dia18
+	Definir n,dimVector,busco,i,vector Como Entero
+	Escribir "Ingrese N cantidad de elementos del vector"
+	Leer n
+	Dimension vector[n]
+	
+	Para i=0 Hasta n-1 Con Paso 1 Hacer
+		Escribir "ingrese numero"
+		Leer dimVector
+		vector[i]=dimVector
+		
+	Fin Para
+	
+	Escribir "numero a buscar en el vector"
+	Leer busco
+	
+	Para i=0 Hasta n-1 Con Paso 1 Hacer
+		
+		Si vector[i]==busco Entonces
+			Escribir  "Hay coincidencia en la ubicacion " , i
+		Fin Si
+		Si vector[i]<>busco Entonces
+			Escribir "No hay coincidencias en la ubicacion ", i
+		FinSi
+	Fin Para
+	
+FinAlgoritmo

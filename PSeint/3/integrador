@@ -1,0 +1,284 @@
+Funcion m3 <- calcularVolumen ( alto, largo, ancho )
+	Definir m3 Como Real
+	m3 = alto * ancho * largo
+Fin Funcion
+
+Funcion m2 <- calcularSuperficie ( largo, ancho )
+	Definir m2 Como Real
+	m2 = largo * ancho 
+Fin Funcion
+
+
+Algoritmo Calculadora_De_Materiales_Construccion
+	menu()
+FinAlgoritmo
+
+SubProceso menu()
+	Definir optionMenu Como Caracter
+	Definir ancho, largo, alto, espesor Como Real
+	
+	Escribir "BIENVENIDO AL CALCULADOR DE MATERIALES"
+	
+	Repetir
+		Escribir "Ingrese una opcion:"
+		Escribir "1. Calcular muro de ladrillo"
+		Escribir "2. Calcular viga de hormigon"
+		Escribir "3. Calcular columnas de hormigon"
+		Escribir "4. Calcular contrapisos"
+		Escribir "5. Calcular techo"
+		Escribir "6. Calcular pisos"
+		Escribir "7. Calcular pintura"
+		Escribir "8. Calcular iluminacion"
+		Escribir "9. Salir"
+		Leer optionMenu
+		Borrar Pantalla
+		
+		
+		Segun optionMenu Hacer
+			"1":
+				Repetir
+					Escribir "Indique el espesor del muro: 20cm O 30cm?"
+					Leer ancho
+				Mientras Que ancho <> 20 Y ancho <> 30
+				
+				Escribir "Indique el largo y alto del muro:"
+				Leer largo, alto
+				
+				calcularMuro(ancho, largo, alto)
+				
+			"2": 
+				Escribir "Indique el largo de la viga:"
+				Leer largo
+				
+				calcularViga(largo)
+				
+			"3":
+				Escribir "Indique el largo de la columna:"
+				Leer largo
+				
+				calcularColumna(largo)
+				
+			"4":
+				Escribir "Indique el espesor del contrapiso:"
+				Leer espesor
+				Escribir "Indique el largo y ancho del contrapiso:"
+				Leer largo, ancho
+				
+				calcularContrapisos(espesor, ancho, largo)
+				
+			"5":
+				Escribir "Indique el espesor del techo:"
+				Leer espesor
+				Escribir "Indique el largo y ancho del techo:"
+				Leer ancho, largo
+				
+				calcularTecho(espesor, ancho, largo)
+				
+			"6":
+				Escribir "Indique el largo y ancho del piso:"
+				Leer largo, ancho
+				
+				calcularPisos(largo, ancho)
+				
+			"7":
+				Escribir "Indique el largo y ancho del muro:"
+				Leer largo, ancho
+				
+				calcularPintura(largo, ancho)
+				
+			"8":
+				Escribir "Indique el largo y ancho de la superficie:"
+				Leer largo, ancho
+				
+				calcularIluminacion(ancho, largo)
+			"9":
+				Escribir "Programa Finalizado"
+			De Otro Modo:
+				Escribir "Ingrese una opcion valida"
+				
+		Fin Segun
+		
+	Hasta Que optionMenu == "9"
+	
+	
+FinSubProceso
+
+SubProceso calcularMuro(ancho, largo, alto)
+	Definir m2, cemento, arena, ladrillos, vol Como Real
+	
+	m2 = calcularSuperficie(largo, ancho)
+	vol = calcularVolumen ( alto, largo, ancho )
+	
+	Escribir "la superficie del muro es: " m2
+	Escribir "el volumen del muro es : " vol
+	
+	Si ancho == 30 Entonces
+		
+		cemento = 15.2 * m2
+		Escribir "Cemento Necesario -> " cemento " Kg"
+		
+		arena = 0.115 * m2
+		Escribir "Arena Necesaria -> " arena " metros cubicos"
+		
+		ladrillos = 120 * m2
+		Escribir "Ladrillos Necesarios -> " ladrillos 
+		
+	SiNo
+		
+		cemento = 10.9 * m2
+		Escribir "Cemento Necesario -> " cemento " Kg"
+		
+		arena = 0.09 * m2
+		Escribir "Arena Necesaria -> " arena " metros cubicos"
+		
+		ladrillos = 90 * m2
+		Escribir "Ladrillos Necesarios -> " ladrillos 
+		
+	FinSi
+	
+
+	Escribir ""
+	Escribir "Para salir al menu presione ENTER"
+	Esperar Tecla
+	Borrar Pantalla
+	
+FinSubProceso
+
+
+SubProceso calcularViga(largo)
+	Definir cemento, arena, piedra, hierro8, hierro4 Como Real
+	
+	cemento = 9 * largo
+	Escribir "Cemento Necesario: " cemento " Kg"
+	arena = 0.02 * largo
+	Escribir "Arena Necesario: " arena " metros cubicos"
+	piedra = 0.02 * largo
+	Escribir "Piedra Necesario: " piedra " metros cuadrados"
+	hierro8 = 4 * largo
+	Escribir "Hierro del 8 Necesario: " hierro8 " metros"
+	hierro4 = 3 * largo
+	Escribir "Hierro del 4 Necesario: " hierro4 " metros"
+	
+	Escribir ""
+	Escribir "Para salir al menu presione ENTER"
+	Esperar Tecla
+	Borrar Pantalla
+	
+FinSubProceso
+
+SubProceso calcularColumna(largo)
+	Definir cemento, arena, piedra, hierro10, hierro4 Como Real
+	
+	cemento = 7.5 * largo
+	Escribir "Cemento Necesario: " cemento " Kg"
+	arena = 0.016 * largo
+	Escribir "Arena Necesario: " arena " metros cubicos"
+	piedra = 0.016 * largo
+	Escribir "Piedra Necesario: " piedra " metros cuadrados"
+	hierro10 = 6 * largo
+	Escribir "Hierro del 10 Necesario: " hierro10 " metros"
+	hierro4 = 3 * largo
+	Escribir "Hierro del 4 Necesario: " hierro4 " metros"
+	
+	Escribir ""
+	Escribir "Para salir al menu presione ENTER"
+	Esperar Tecla
+	Borrar Pantalla
+	
+FinSubProceso
+
+SubProceso calcularContrapisos(espesor, ancho, largo)
+	Definir m3, cemento, arena, piedra Como Real
+	
+	m3 = calcularVolumen(largo, ancho, espesor)
+	
+	cemento = 105 * m3
+	Escribir "Cemento Necesario: " cemento " Kg"
+	arena = 0.45 * m3
+	Escribir "Arena Necesario: " arena " metros cubicos"
+	piedra = 0.9 * m3
+	Escribir "Piedra Necesario: " piedra " metros cubicos"
+	
+	Escribir ""
+	Escribir "Para salir al menu presione ENTER"
+	Esperar Tecla
+	Borrar Pantalla
+	
+FinSubProceso
+
+SubProceso calcularTecho(largo, ancho, espesor)
+	Definir m2, cemento, arena, piedra, hierro8, hierro6 Como Real
+	
+	m2 = calcularSuperficie(largo, ancho)
+	
+	cemento = 33 * m2 
+	Escribir "Cemento Necesario: " cemento " Kg"
+	arena = 0.072 * m2
+	Escribir "Arena Necesario: " arena " metros cubicos"
+	piedra = 0.072 * m2
+	Escribir "Piedra Necesario: " piedra " metros cubicos"
+	hierro8 = 7 * m2
+	Escribir "Hierro del 8 Necesario: " hierro8 " metros"
+	hierro6 = 4 * m2
+	Escribir "Hierro del 6 Necesario: " hierro6 " metros"
+	
+	Escribir ""
+	Escribir "Para salir al menu presione ENTER"
+	Esperar Tecla
+	Borrar Pantalla
+	
+FinSubProceso
+
+SubProceso calcularPisos(ancho, largo)
+	Definir m2 Como Real
+	
+	m2 = calcularSuperficie(ancho, largo)
+	Escribir "La superficie es de: " m2
+	m2 = m2 * 1.10
+	Escribir "La superficie con 10% extra por recortes es de: " m2
+	
+	Escribir ""
+	Escribir "Para salir al menu presione ENTER"
+	Esperar Tecla
+	Borrar Pantalla
+	
+FinSubProceso
+
+SubProceso calcularPintura(ancho, largo)
+	Definir m2, litros Como Real
+	
+	m2 = calcularSuperficie(ancho, largo)
+	
+	Escribir "La superficie es de: " m2
+	litros = m2 / 6
+	Escribir "La cantidad de litros necesarios para pintar el muro son: " litros " litros"
+	
+	Escribir ""
+	Escribir "Para salir al menu presione ENTER"
+	Esperar Tecla
+	Borrar Pantalla
+	
+FinSubProceso
+
+SubProceso calcularIluminacion(ancho, largo)
+	Definir m2, iluminacion Como Real
+	
+	m2 = calcularSuperficie(ancho, largo)
+	
+	Escribir "La superficie es de: " m2
+	
+	iluminacion = m2 * 0.20
+	Escribir "La cantidad minima de superficie de iluminación natural es de: " iluminacion 
+	
+	Escribir ""
+	Escribir "Para salir al menu presione ENTER"
+	Esperar Tecla
+	Borrar Pantalla
+	
+FinSubProceso
+
+
+
+
+
+

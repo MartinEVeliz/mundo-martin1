@@ -1,0 +1,126 @@
+Algoritmo sin_titulo
+	Definir N, posicion Como Entero
+	Definir vector, frase, letra Como Caracter
+	
+	N = 20
+	Dimension vector[N]
+	
+	Escribir "Por favor escriba una frase"
+	//Leer frase
+	frase = "Hola mundo cruel!"
+	LlenarVector(vector, N, frase)
+	MostrarVector(vector, N)
+	
+	Escribir "Ahora vamos a ingresar un caracter dentro del vector"
+	Escribir "Indica que caracter quieres ingresar: " Sin Saltar
+	Leer letra
+	Escribir "En cual posicion: " Sin Saltar
+	Leer posicion
+	
+	InsertarCaracter(vector, N, letra, posicion)
+	MostrarVector(vector, N)
+	
+FinAlgoritmo
+///////////////////////////////////////////////////////////////////////
+SubProceso LlenarVector(vector, n, frase)
+	Definir i Como Entero
+	
+	Para i = 0 Hasta n-1 Hacer
+		vector[i] = Subcadena(frase,i,i)
+	FinPara
+FinSubProceso
+///////////////////////////////////////////////////////////////////////
+SubProceso MostrarVector(vector, n)
+	Definir i Como Entero
+	
+	Para i = 0 Hasta n-1 Hacer
+		si i < n-1 Entonces
+			Escribir vector[i] Sin Saltar
+		SiNo
+			Escribir vector[i]
+		FinSi
+		
+	FinPara
+FinSubProceso
+///////////////////////////////////////////////////////////////////////
+SubProceso InsertarCaracter(vector, n, letra, posicion)
+	Definir espacioIzq, espacioDer Como Entero
+	
+	// Primero determinar si la posicion elegida por el usuario es un espacio vacío o un espacio
+	// si es asi solo ingresamos el caracter sin mover nada
+	Si vector[posicion - 1] == "" o vector[posicion - 1] == " " Entonces
+		vector[posicion - 1] = letra
+	SiNo
+		//determinamos la distancia entre la posición de inserción y la espacio vacio o en blanco mas cercano
+		espacioIzq = EncontrarEspacio(vector, n, posicion, -1)
+		espacioDer = EncontrarEspacio(vector, n, posicion, 1)
+		Escribir espacioIzq, " ", espacioDer
+		/////////////////////////
+		si espacioDer <= espacioIzq Entonces
+			DesplazarCadena(vector, n, posicion, 1)
+		SiNo
+			si espacioDer > espacioIzq Entonces
+				DesplazarCadena(vector, n, posicion, -1)
+			SiNo
+				
+			FinSi
+			
+		FinSi
+		
+		vector[posicion - 1] = letra
+	FinSi
+	
+	
+//	Si vector[posicion - 1] == " " o vector[posicion - 1] == "" Entonces
+//		vector[posicion - 1] = letra
+//		Escribir "El caracter ", letra, " fue ingresado en la posición ", posicion, " del vector"
+//	SiNo
+//		Escribir "No es posible ingresar el caracter ", letra, " en la posición ", posicion, " del vector"
+//		Escribir "porque en la posicion", posicion, " se encuentra ocupado con el caracter " vector[posicion-1]
+//	FinSi
+FinSubProceso
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Funcion espacios <- EncontrarEspacio(vector, longitudDelVector, posicionInsercion, direccion)
+	// la variable direccion recibe solo dos valores 1 y -1
+	// 1 --> Busca un espacio vació desde la posición de insercion hacia el lado derecho
+	// -1 --> Busca un espacio vació desde la posición de insercion hacia el lado Izquiero
+	Definir i, espacios  Como Entero
+	espacios = 0
+	
+	Si direccion == 1 Entonces
+		para i = posicionInsercion Hasta longitudDelVector-1 Con Paso direccion Hacer 
+			espacios = espacios + 1
+			si vector[i] == "" o vector[i] == " " Entonces
+				i = longitudDelVector
+			FinSi
+		FinPara
+	FinSi
+	Si direccion == -1 Entonces
+		Para i = posicionInsercion-2 hasta 0 Con Paso direccion Hacer
+			espacios = espacios + 1
+			si vector[i] == "" o vector[i] == " " Entonces
+				i = -1
+			FinSi
+		FinPara
+	FinSi
+FinSubProceso
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+SubProceso DesplazarCadena(vector, n, posicion, direccion)
+	// la variable direccion recibe solo dos valores 1 y -1
+	// 1 --> dezplaza cada caracter a partir de la posicion de inserción hasta el final un  espacio a la derecha
+	// -1 --> dezplaza cada caracter a partir de la posicion de inserción hasta el inicio un  espacio a la izquierda
+	Definir i Como Entero
+	
+	si direccion == 1 Entonces
+		para i = n-1 Hasta (posicion-1) Con Paso (-1 * direccion) Hacer
+			vector[i] = vector[i-1]
+		FinPara
+	SiNo
+		Para i = 0 Hasta (posicion-1) Con Paso (-1 * direccion) Hacer
+			vector[i] = vector[i+1]
+		FinPara
+	FinSi
+	
+FinSubProceso
+	

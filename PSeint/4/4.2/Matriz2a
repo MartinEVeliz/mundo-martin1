@@ -1,0 +1,62 @@
+// Escribir un programa que realice la búsqueda lineal de un número entero ingresado por el
+//usuario en una matriz de 5x5, llena de números aleatorios y devuelva por pantalla las
+//coordenadas donde se encuentra el valor, es decir en que fila y columna se encuentra. En
+//caso de no encontrar el valor dentro de la matriz se debe mostrar un mensaje.
+
+Algoritmo sin_titulo
+	
+	definir matriz Como Entero
+	definir n como entero
+	definir cond como logico
+	
+	
+	dimension matriz[5, 5]
+	
+	cond=falso
+	
+	//rellenar
+	para i=1 hasta 5 hacer 
+		
+		para j=1 hasta 5 hacer
+			
+			matriz[i, j]=aleatorio(1, 9)
+			
+		FinPara
+	
+	FinPara
+	
+	//pedir número
+	escribir "Ingrese un número"
+	leer n
+
+	//buscar número
+	para i=1 hasta 5 hacer 
+			
+		para j=1 hasta 5 hacer
+				
+			matriz[i, j]=aleatorio(1, 50)
+			
+			//comprobar
+			si matriz[i, j]==n Entonces
+				
+				//devolver resultado
+				escribir "El número ingresado se encuentra en la posición (" i ", " j ")"
+				cond=Verdadero
+				
+			FinSi
+			
+		FinPara
+			
+	FinPara
+	
+	//comprobar
+	si cond==falso Entonces
+		
+		//devolver resultado
+		escribir "El número ingresado no se encuentra en el arreglo"
+		
+	FinSi
+	
+		
+	
+FinAlgoritmo

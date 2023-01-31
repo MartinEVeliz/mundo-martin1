@@ -1,0 +1,56 @@
+Proceso sin_titulo
+	
+	definir dia, mes, ano como entero
+	definir mes2 Como Caracter
+	escribir "escriba el numero del día, luego el mes y luego el año"
+	leer dia
+	leer mes
+	leer ano
+	
+	si mes > 12 y mes=0
+		entonces escribir "su mes no es válido"
+	SiNo
+		si dia > 31 y dia=0
+			entonces escribir "su dia no es válido"
+		SiNo
+			si dia > 28 y mes = 2 Entonces
+				escribir "su dia no es valido"	
+			SiNo
+				si dia > 30 y mes = 4 o mes = 6 o mes = 9 o mes = 11 entonces
+					escribir "su dia no es valido"
+				SiNo
+					segun mes Hacer
+						01:
+							mes2 = "enero"
+						02:
+							mes2 = "febrero"
+						03:
+							mes2 = "Marzo"
+						04:
+							mes2 = "Abril"	
+						05:
+							mes2 = "Mayo"
+						06:
+							mes2 = "Junio"
+						07:
+							mes2 = "Julio"
+						08:
+							mes2 = "Agosto"	
+						09:
+							mes2 = "Septiembre"
+						10:
+							mes2 = "Octubre"
+						11:
+							mes2 = "Noviembre"
+						12:
+							mes2 = "Diciembre"
+					FinSegun
+					escribir "hoy es " dia " de " mes2 " de " ano
+					
+				FinSi
+			FinSi
+			
+			
+		FinSi	
+	FinSi
+FinProceso
